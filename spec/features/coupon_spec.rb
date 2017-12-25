@@ -25,10 +25,10 @@ describe 'form page' do
   it 'new form submits content and renders form content' do
     visit new_coupon_path
 
-    fill_in 'coupon_code', with: "YAYFREE"
-    fill_in 'store', with: "Hobby Lobby"
+    fill_in 'coupon_coupon_code', with: "YAYFREE"
+    fill_in 'coupon_store', with: "Hobby Lobby"
 
-    click_on "Submit Coupon"
+    click_on "Create Coupon"
 
     expect(page).to have_content("YAYFREE")
   end
@@ -36,10 +36,10 @@ describe 'form page' do
   it 'creates a record in the database' do
     visit new_coupon_path
 
-    fill_in 'coupon_code', with: "FREEITEM"
-    fill_in 'store', with: "Quip"
+    fill_in 'coupon_coupon_code', with: "FREEITEM"
+    fill_in 'coupon_store', with: "Quip"
 
-    click_on "Submit Coupon"
+    click_on "Create Coupon"
 
     expect(Coupon.last.store).to eq("Quip")
   end
